@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    </body>
+</html>
+<script type="text/javascript">
+function getRequest(){
+    var url = location.search; //获取url中"?"符后的字串
+    // var url =  window.location.href;//获取整个url
+    // window.location.hash 设置或获取 href 属性中在井号“#”后面的分段
+    // alert(url)
+    var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+ var Request = new Object();
+    Request = getRequest();
+  var c1 = Request["url"];
+ location.href = c1;
+</script>
